@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3f6f0;
+  --foreground: #10202c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: #07151f;
+  --color-navy: #0c2c4a;
+  --color-blue: #0094e0;
+  --color-lime: #c6e200;
+  --color-pink: #ee2a8a;
+  --color-slate: #5b6e7c;
+  --color-paper: #f3f6f0;
+  --color-mist: #e4ece0;
+  --color-card: #ffffff;
+  --font-sans: var(--font-figtree);
+  --font-display: var(--font-syne);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-syne), var(--font-figtree), sans-serif;
+  letter-spacing: -0.03em;
+}
+
+::selection {
+  background: #c6e200;
+  color: #07151f;
+}
+
+.skip {
+  position: absolute;
+  left: 12px;
+  top: -40px;
+  z-index: 80;
+  background: #c6e200;
+  color: #07151f;
+  padding: 8px 12px;
+  font-weight: 700;
+}
+
+.skip:focus {
+  top: 12px;
+}
