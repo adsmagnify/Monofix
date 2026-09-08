@@ -9,7 +9,7 @@ type PageHeroProps = {
 export function PageHero({ kicker, title, lead }: PageHeroProps) {
   return (
     <section className="bg-navy text-white">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:py-20">
         <p className="text-xs font-semibold tracking-[0.22em] text-lime uppercase">{kicker}</p>
         <h1 className="font-display mt-3 max-w-4xl text-4xl leading-tight sm:text-5xl">{title}</h1>
         {lead ? <p className="mt-5 max-w-2xl text-lg text-white/75">{lead}</p> : null}

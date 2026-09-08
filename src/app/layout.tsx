@@ -3,6 +3,7 @@ import { Figtree, Syne } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MarketPopup } from "@/components/MarketPopup";
+import { Main } from "@/components/Main";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -56,7 +57,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <Header />
-        <main id="main">{children}</main>
+        <Main>{children}</Main>
         <Footer />
         <MarketPopup />
       </body>

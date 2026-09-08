@@ -25,6 +25,45 @@ export const team = [
   "Anees Cementwala",
 ];
 
+export const homeSlides = [
+  {
+    src: "/home/one-carousel.jpg",
+    alt: "Innovative packaging solutions that mean business",
+  },
+  {
+    src: "/home/twoo-carousel.png",
+    alt: "From a complex packaging problem to a launch that grows the brand",
+  },
+  {
+    src: "/home/three-carousel.png",
+    alt: "Innovative packaging solutions — a clear path through complexity",
+  },
+  {
+    src: "/home/four-carousel.png",
+    alt: "Innovative packaging solutions that mean business",
+  },
+  {
+    src: "/home/five-carousel.png",
+    alt: "Smarter, sustainable, impactful packaging",
+  },
+  {
+    src: "/home/six-carousel.png",
+    alt: "Over 70 percent of consumers prefer sustainable packaging",
+  },
+  {
+    src: "/home/extra/seven-carousel.png",
+    alt: "MONOFIX home banner — packaging visual",
+  },
+  {
+    src: "/home/extra/eight-carousel.png",
+    alt: "MONOFIX home banner — packaging visual",
+  },
+  {
+    src: "/home/extra/Master-Image-01.png",
+    alt: "MONOFIX sustainable packaging — home banner",
+  },
+] as const;
+
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -156,7 +195,7 @@ export const gallery = [
   },
   {
     title: "Ethnographic research, consumer insights",
-    image: "/home/six-carousel.jpg",
+    image: "/home/six-carousel.png",
     note: "How people actually use, store and choose the pack.",
   },
   {
