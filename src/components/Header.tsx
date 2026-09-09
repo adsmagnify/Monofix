@@ -6,15 +6,15 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { nav, site } from "@/content/site";
 
-const links = nav.filter((item) => item.href !== "/contact");
+const links = nav.filter((item) => item.id !== "contact");
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("hero");
   const isHome = pathname === "/";
   const solid = !isHome || scrolled || open;
-
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -36,6 +36,31 @@ export function Header() {
     return () => observer.disconnect();
   }, [open, solid]);
 
+  useEffect(() => {
+    if (!isHome) {
+      setActive("");
+      return;
+    }
+
+    const ids = ["hero", "about", "why", "services", "gallery", "sustainability", "testimonials", "insights", "contact", "packgn", "casestudies"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target.id) setActive(visible.target.id);
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 1] },
+    );
+
+    ids.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, [isHome]);
+
   return (
     <header
       ref={headerRef}
@@ -46,7 +71,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-10 lg:py-5">
-        <Link href="/" className="flex min-w-0 shrink-0 items-center" onClick={() => setOpen(false)}>
+        <Link href="/#hero" className="flex min-w-0 shrink-0 items-center" onClick={() => setOpen(false)}>
           <Image
             src="/logo-nav.png"
             alt={site.name}
@@ -60,16 +85,13 @@ export function Header() {
 
         <nav className="hidden items-center gap-0.5 rounded-full px-1 py-1 xl:flex">
           {links.map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const isActive = active === item.id;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-3 py-2 text-[13px] font-medium whitespace-nowrap transition ${
-                  active ? "bg-lime text-ink" : "text-white hover:bg-white/10"
+                className={`cursor-pointer rounded-full px-3 py-2 text-[13px] font-medium whitespace-nowrap transition ${
+                  isActive ? "bg-lime text-ink" : "text-white hover:bg-white/10"
                 }`}
               >
                 {item.label}
@@ -77,8 +99,8 @@ export function Header() {
             );
           })}
           <Link
-            href="/contact"
-            className={`rounded-full px-4 py-2 text-[13px] font-semibold whitespace-nowrap ${
+            href="/#contact"
+            className={`cursor-pointer rounded-full px-4 py-2 text-[13px] font-semibold whitespace-nowrap ${
               solid ? "bg-lime text-ink" : "bg-ink text-white"
             }`}
           >
@@ -88,7 +110,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 xl:hidden"
+          className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/30 xl:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
@@ -108,15 +130,15 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-white hover:bg-white/10"
+              className="cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-white hover:bg-white/10"
               onClick={() => setOpen(false)}
             >
               {item.label}
             </Link>
           ))}
           <Link
-            href="/contact"
-            className="mt-1 rounded-full bg-lime px-4 py-2.5 text-center text-sm font-semibold text-ink"
+            href="/#contact"
+            className="mt-1 cursor-pointer rounded-full bg-lime px-4 py-2.5 text-center text-sm font-semibold text-ink"
             onClick={() => setOpen(false)}
           >
             Contact

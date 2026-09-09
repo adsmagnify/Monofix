@@ -50,7 +50,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4">
+    <form onSubmit={onSubmit} className="grid gap-6">
       {regionNote ? (
         <p className="rounded-xl bg-lime/40 px-3 py-2 text-sm font-medium text-ink">{regionNote}</p>
       ) : null}
@@ -59,7 +59,7 @@ export function ContactForm() {
         <input
           name="name"
           required
-          className="rounded-xl border border-slate/20 bg-white px-3 py-3 text-base font-normal outline-none focus:border-blue"
+          className="rounded-xl border border-slate/20 bg-white px-4 py-4 text-base font-normal outline-none focus:border-blue"
         />
       </label>
       <label className="grid gap-1 text-sm font-medium">
@@ -69,14 +69,14 @@ export function ContactForm() {
           type="email"
           autoComplete="email"
           required
-          className="rounded-xl border border-slate/20 bg-white px-3 py-3 text-base font-normal outline-none focus:border-blue"
+          className="rounded-xl border border-slate/20 bg-white px-4 py-4 text-base font-normal outline-none focus:border-blue"
         />
       </label>
       <label className="grid gap-1 text-sm font-medium">
         Company
         <input
           name="company"
-          className="rounded-xl border border-slate/20 bg-white px-3 py-3 text-base font-normal outline-none focus:border-blue"
+          className="rounded-xl border border-slate/20 bg-white px-4 py-4 text-base font-normal outline-none focus:border-blue"
         />
       </label>
       <label className="grid gap-1 text-sm font-medium">
@@ -85,7 +85,7 @@ export function ContactForm() {
           name="service"
           required
           defaultValue=""
-          className="rounded-xl border border-slate/20 bg-white px-3 py-3 text-base font-normal outline-none focus:border-blue"
+          className="rounded-xl border border-slate/20 bg-white px-4 py-4 text-base font-normal outline-none focus:border-blue"
         >
           <option value="" disabled>
             Select a vertical
@@ -103,12 +103,12 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="rounded-xl border border-slate/20 bg-white px-3 py-3 text-base font-normal outline-none focus:border-blue"
+          className="rounded-xl border border-slate/20 bg-white px-4 py-4 text-base font-normal outline-none focus:border-blue"
         />
       </label>
       <button
         type="submit"
-        className="mt-2 rounded-full bg-ink px-6 py-3 text-sm font-bold text-white hover:bg-navy"
+        className="mt-2 cursor-pointer rounded-full bg-ink px-8 py-4 text-base font-bold text-white hover:bg-navy"
       >
         Send message
       </button>

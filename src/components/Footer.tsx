@@ -1,14 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
-import { site } from "@/content/site";
+import { services, site } from "@/content/site";
 
 export function Footer() {
   return (
     <footer className="bg-ink text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
-        <div className="md:col-span-2">
-          <p className="font-display text-2xl">MONOFIX</p>
-          <p className="mt-2 max-w-md text-white/70">{site.tagline}</p>
-          <p className="mt-4 flex flex-wrap gap-2 text-xs font-semibold tracking-[0.18em] uppercase">
+      <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-20 sm:px-10 md:grid-cols-4 lg:px-16">
+        <div>
+          <Image
+            src="/logo-nav.png"
+            alt={site.name}
+            width={360}
+            height={90}
+            className="h-12 w-auto object-contain"
+            unoptimized
+          />
+          <p className="mt-5 max-w-xs text-base text-white/55">{site.tagline}</p>
+          <p className="mt-6 flex flex-wrap gap-2 text-xs font-semibold tracking-[0.18em] uppercase">
             {site.hashtags.map((tag) => (
               <span key={tag} className="rounded-full bg-white/10 px-3 py-1">
                 <span className="text-pink">#</span>
@@ -18,60 +26,77 @@ export function Footer() {
           </p>
         </div>
         <div>
-          <p className="text-sm font-semibold text-lime">Company</p>
-          <ul className="mt-3 grid gap-2 text-sm text-white/75">
+          <p className="font-display text-sm tracking-wide text-white uppercase">Services</p>
+          <ul className="mt-5 grid gap-3 text-base text-white/50">
+            {services.map((service) => (
+              <li key={service.slug}>
+                <Link href="/#services" className="hover:text-lime">
+                  {service.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="font-display text-sm tracking-wide text-white uppercase">Company</p>
+          <ul className="mt-5 grid gap-3 text-base text-white/50">
             <li>
-              <Link href="/about" className="hover:text-lime">
-                About
+              <Link href="/#about" className="hover:text-lime">
+                About us
               </Link>
             </li>
             <li>
-              <Link href="/why-monofix" className="hover:text-lime">
+              <Link href="/#why" className="hover:text-lime">
                 Why MONOFIX
               </Link>
             </li>
             <li>
-              <Link href="/insights" className="hover:text-lime">
-                Insights
+              <Link href="/#gallery" className="hover:text-lime">
+                Gallery
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-lime">
+              <Link href="/#casestudies" className="hover:text-lime">
+                Case studies
+              </Link>
+            </li>
+            <li>
+              <Link href="/#sustainability" className="hover:text-lime">
+                Sustainability
+              </Link>
+            </li>
+            <li>
+              <Link href="/#contact" className="hover:text-lime">
                 Contact
               </Link>
             </li>
           </ul>
         </div>
         <div>
-          <p className="text-sm font-semibold text-lime">Services</p>
-          <ul className="mt-3 grid gap-2 text-sm text-white/75">
+          <p className="font-display text-sm tracking-wide text-white uppercase">Resources</p>
+          <ul className="mt-5 grid gap-3 text-base text-white/50">
             <li>
-              <Link href="/services" className="hover:text-lime">
-                Six verticals
+              <Link href="/#insights" className="hover:text-lime">
+                Insights
               </Link>
             </li>
             <li>
-              <Link href="/sustainability" className="hover:text-lime">
-                Sustainability &amp; EPR
-              </Link>
-            </li>
-            <li>
-              <Link href="/packaging-made-easy" className="hover:text-lime">
+              <Link href="/#packgn" className="hover:text-lime">
                 Packaging made easy
               </Link>
             </li>
             <li>
-              <Link href="/gallery" className="hover:text-lime">
-                Gallery
+              <Link href="/#contact" className="hover:text-lime">
+                Get a quote
               </Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div className="mx-auto flex max-w-[1400px] flex-col gap-2 px-6 py-6 text-sm text-white/40 sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-16">
           <p>
-            {site.legalName} · GST {site.gst}
+            © {new Date().getFullYear()} {site.legalName} · GST {site.gst}
           </p>
           <p>
             {site.email} · {site.phone}

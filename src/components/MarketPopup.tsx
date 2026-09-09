@@ -23,40 +23,39 @@ export function MarketPopup() {
 
   return (
     <aside
-      className="fixed right-4 bottom-4 z-50 w-[min(100%-2rem,22rem)] rounded-2xl border border-white/15 bg-navy p-5 text-white shadow-[0_24px_60px_rgba(7,21,31,0.45)] sm:right-6 sm:bottom-6"
+      className="fixed top-1/2 right-4 z-50 w-[min(100%-2rem,22rem)] -translate-y-1/2 rounded-2xl border border-white/15 bg-navy p-6 text-white shadow-[0_24px_60px_rgba(7,21,31,0.45)] sm:right-8"
       role="dialog"
       aria-labelledby="geo-popup-title"
     >
       <button
         type="button"
         onClick={dismiss}
-        className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full text-lg text-white/70 hover:bg-white/10"
+        className="absolute right-3 top-3 grid h-8 w-8 cursor-pointer place-items-center rounded-full text-lg text-white/70 hover:bg-white/10"
         aria-label="Close"
       >
         ×
       </button>
-      <p className="text-xs font-semibold tracking-[0.2em] text-lime uppercase">Priority desks</p>
-      <h2 id="geo-popup-title" className="font-display mt-2 text-xl leading-tight">
+      <h2 id="geo-popup-title" className="font-display pr-8 text-2xl leading-tight">
         {popup.title}
       </h2>
-      <p className="mt-3 text-sm leading-relaxed text-white/80">{popup.body}</p>
-      <div className="mt-4 grid grid-cols-2 gap-2">
+      <p className="mt-4 text-base leading-relaxed text-white/80">{popup.body}</p>
+      <div className="mt-5 grid grid-cols-2 gap-3">
         {popup.regions.map((region) => (
           <Link
             key={region.id}
-            href={`/contact?region=${region.id}`}
+            href={`/?region=${region.id}#contact`}
             onClick={dismiss}
-            className="rounded-xl bg-white/10 px-3 py-3 text-center"
+            className="cursor-pointer rounded-xl bg-white/10 px-3 py-4 text-center transition hover:bg-white/20"
           >
-            <span className="block font-display text-lg">{region.label}</span>
-            <span className="mt-1 block text-[11px] leading-snug text-white/70">{region.detail}</span>
+            <span className="block font-display text-xl">{region.label}</span>
+            <span className="mt-2 block text-xs leading-snug text-white/70">{region.detail}</span>
           </Link>
         ))}
       </div>
       <Link
-        href="/contact"
+        href="/#contact"
         onClick={dismiss}
-        className="mt-4 flex items-center justify-center rounded-full bg-lime px-4 py-2.5 text-sm font-bold text-ink"
+        className="mt-5 flex cursor-pointer items-center justify-center rounded-full bg-lime px-4 py-3 text-sm font-bold text-ink"
       >
         {popup.cta}
       </Link>

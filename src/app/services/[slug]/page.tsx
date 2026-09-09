@@ -24,11 +24,11 @@ export default async function ServiceDetailPage({ params }: Props) {
   return (
     <>
       <PageHero kicker={`Vertical ${service.number}`} title={service.title} lead={service.short} />
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        <p className="max-w-3xl text-lg text-slate">{service.body}</p>
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+      <section className="mx-auto max-w-[1400px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
+        <p className="max-w-3xl text-xl leading-relaxed text-slate">{service.body}</p>
+        <ul className="mt-12 grid gap-6 sm:grid-cols-2">
           {service.points.map((point) => (
-            <li key={point} className="rounded-2xl bg-white px-5 py-4">
+            <li key={point} className="rounded-3xl bg-white px-8 py-6 text-lg">
               {point}
             </li>
           ))}

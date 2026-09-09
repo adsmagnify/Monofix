@@ -12,22 +12,22 @@ export default function ContactPage() {
   return (
     <>
       <PageHero kicker="Contact us" title="Let's start something new!" lead={site.responseTime} />
-      <section className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_1.1fr]">
-        <div>
-          <h2 className="font-display text-2xl">Headquarters</h2>
-          <p className="mt-3 text-slate">
-            {site.name}
-            <br />
-            {site.address.line1}
-            <br />
-            {site.address.line2}
-            <br />
-            {site.address.line3}
-          </p>
-          <p className="mt-6 text-slate">
+      <section className="mx-auto grid max-w-[1400px] gap-16 px-6 py-24 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-16 lg:py-32">
+        <div className="grid gap-6">
+          <div>
+            <h2 className="font-display text-3xl">Headquarters</h2>
+            <p className="mt-4 text-lg leading-relaxed text-slate">
+              {site.name}
+              <br />
+              {site.address.line1}
+              <br />
+              {site.address.line2}
+            </p>
+          </div>
+          <p className="text-lg text-slate">
             <strong>Locations:</strong> {site.locations.join(", ")}
           </p>
-          <p className="mt-4">
+          <p className="text-lg">
             <a className="font-semibold text-navy" href={`mailto:${site.email}`}>
               {site.email}
             </a>
@@ -36,9 +36,10 @@ export default function ContactPage() {
               {site.phone}
             </a>
           </p>
-          <p className="mt-6 text-sm text-slate">LinkedIn: to be added when the company page URL is confirmed.</p>
+          <p className="text-lg text-slate">LinkedIn: to be added</p>
         </div>
-        <div className="rounded-3xl bg-white p-6 sm:p-8">
+        <div className="rounded-3xl bg-white p-8 sm:p-12">
+          <h2 className="font-display mb-8 text-3xl">Get in touch</h2>
           <Suspense fallback={<p>Loading form…</p>}>
             <ContactForm />
           </Suspense>

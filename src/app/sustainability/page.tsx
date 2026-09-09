@@ -9,18 +9,14 @@ export const metadata = {
 export default function SustainabilityPage() {
   return (
     <>
-      <PageHero
-        kicker="Sustainability"
-        title="Packaging that protects the planet"
-        lead="Mono-material structures, circularity, PCR, PPWR / EPR compliance, and line-ready change."
-      />
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        <div className="grid gap-5 md:grid-cols-2">
+      <PageHero kicker="Sustainability" title="Packaging that protects the planet" />
+      <section className="mx-auto max-w-[1400px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
+        <div className="grid gap-8">
           {sustainabilityPoints.map((item, index) => (
-            <article key={item.title} className="rounded-3xl bg-white p-7">
-              <p className="font-display text-sm text-blue">0{index + 1}</p>
-              <h2 className="font-display mt-2 text-2xl">{item.title}</h2>
-              <p className="mt-3 text-slate">{item.text}</p>
+            <article key={item.title} className="rounded-3xl bg-white p-10 sm:p-12">
+              <p className="font-display text-lg text-blue">0{index + 1}</p>
+              <h2 className="font-display mt-4 text-3xl">{item.title}</h2>
+              <p className="mt-4 text-lg leading-relaxed text-slate">{item.text}</p>
             </article>
           ))}
         </div>

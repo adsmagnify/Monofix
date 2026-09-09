@@ -18,6 +18,7 @@ export function HeroCarousel() {
 
   return (
     <section
+      id="hero"
       className="hero-viewport relative h-svh min-h-screen w-full overflow-hidden bg-ink"
       aria-roledescription="carousel"
       aria-label="Home banner"

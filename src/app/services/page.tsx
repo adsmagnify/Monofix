@@ -10,25 +10,21 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <PageHero
-        kicker="Services"
-        title="Six verticals of packaging excellence"
-        lead="From new pack development to EPR, resourcing and CAE — one team through launch."
-      />
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        <div className="grid gap-5">
+      <PageHero kicker="Services" title="6 verticals of packaging excellence" />
+      <section className="mx-auto max-w-[1400px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
+        <div className="grid gap-8">
           {services.map((service) => (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="grid gap-3 rounded-3xl bg-white p-7 shadow-sm transition hover:shadow-md md:grid-cols-[5rem_1fr_auto] md:items-center"
+              className="grid cursor-pointer gap-4 rounded-3xl bg-white p-10 transition hover:shadow-md md:grid-cols-[6rem_1fr_auto] md:items-center md:p-12"
             >
-              <span className="font-display text-2xl text-blue">{service.number}</span>
+              <span className="font-display text-3xl text-blue">{service.number}</span>
               <div>
-                <h2 className="font-display text-2xl">{service.title}</h2>
-                <p className="mt-2 text-slate">{service.short}</p>
+                <h2 className="font-display text-3xl">{service.title}</h2>
+                <p className="mt-3 text-lg text-slate">{service.short}</p>
               </div>
-              <span className="text-sm font-semibold text-navy">View vertical →</span>
+              <span className="text-base font-semibold text-navy">View vertical →</span>
             </Link>
           ))}
         </div>

@@ -8,9 +8,8 @@ export const site = {
   phoneHref: "tel:+919820026080",
   responseTime: "Get in touch… responds within 24 hours",
   address: {
-    line1: "INNOV8 Solitaire Corporate Park, 7th Floor, S-11",
-    line2: "Unit No.1171-1172, Chakala MIDC",
-    line3: "Andheri East, Mumbai 400093, Maharashtra",
+    line1: "INNOV8 Solitaire Park",
+    line2: "Andheri East, Mumbai 400093",
   },
   gst: "27ACFFM0048P1ZW",
   locations: ["Mumbai", "NCR", "Pune", "Jakarta", "USA", "EU", "UK"],
@@ -18,12 +17,70 @@ export const site = {
 };
 
 export const team = [
-  "Paul Prakash",
-  "Prakash Iyer",
-  "Barun Banerjee",
-  "Ashutosh Anmadwar",
-  "Anees Cementwala",
-];
+  {
+    name: "Krishnaprakash Iyer",
+    listName: "Prakash Iyer",
+    listOrder: 2,
+    initials: "KI",
+    linkedin: "https://www.linkedin.com/in/krishnaprakash-iyer-17228813",
+    summary: "End to end packaging R&D expertise.",
+    sectors: "FMCG | Devices | Cosmetics | Hospitality",
+    companies: "Marico | Pacific Inter | Unilever (India China UK)",
+    credential: "IIP Mumbai",
+  },
+  {
+    name: "Paul E. Prakash",
+    listName: "Paul Prakash",
+    listOrder: 1,
+    initials: "PP",
+    linkedin: "https://www.linkedin.com/in/paul-e-prakash-95975310",
+    summary: "4 decades of experience, 33 years in Packaging, 25 years as Head of Packaging with Marico, Reliance-Retail, Dabur & Pidilite (Packaging & Machinery).",
+    sectors: "",
+    companies: "",
+    credential: "B.E (M.I.T) M.M.M.",
+  },
+  {
+    name: "Barun Banerjee",
+    listName: "Barun Banerjee",
+    listOrder: 3,
+    initials: "BB",
+    linkedin: "https://www.linkedin.com/in/barunbanerjee",
+    summary: "Packg Dev E2E, Sustainability, Flexibles.",
+    sectors: "FMCG | Cosmetics | Pharma",
+    companies: "Nestle | Himalaya | Oriflame | Ranbaxy | Jupiter",
+    credential: "IIP Mumbai",
+  },
+  {
+    name: "Ashutosh S Anmadwar",
+    listName: "Ashutosh Anmadwar",
+    listOrder: 4,
+    initials: "AA",
+    linkedin: "https://www.linkedin.com/in/ashutoshanmadwar",
+    summary: "Plastics & Packaging.",
+    sectors: "",
+    companies: "Tropics Ltd | Marico | Aditya Birla Retail",
+    credential: "CIPET",
+  },
+  {
+    name: "Anees Cementwala",
+    listName: "Anees Cementwala",
+    listOrder: 5,
+    initials: "AC",
+    linkedin: "https://www.linkedin.com/in/aneescementwala",
+    summary: "Consumer-centric Design and Innovation.",
+    sectors: "Packaging | Branding | Retail | Product",
+    companies: "Marico | Aditya Birla | TimesofIndia | Planet-M",
+    credential: "IIT Bombay",
+  },
+] as const;
+
+export const teamList = [...team].sort((a, b) => a.listOrder - b.listOrder);
+
+export const teamHighlights = [
+  "250 years of combined experience.",
+  "Spanning: FMCG, Chemicals, Lubricants, Retail & Pharma.",
+  "Proven expertise of launching fresh Products and Brands from scratch.",
+] as const;
 
 export const homeSlides = [
   {
@@ -65,15 +122,14 @@ export const homeSlides = [
 ] as const;
 
 export const nav = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/why-monofix", label: "Why MONOFIX" },
-  { href: "/services", label: "Services" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/sustainability", label: "Sustainability" },
-  { href: "/insights", label: "Insights" },
-  { href: "/case-studies", label: "Case studies" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#about", id: "about", label: "About" },
+  { href: "/#why", id: "why", label: "Why MONOFIX" },
+  { href: "/#services", id: "services", label: "Services" },
+  { href: "/#gallery", id: "gallery", label: "Gallery" },
+  { href: "/#sustainability", id: "sustainability", label: "Sustainability" },
+  { href: "/#testimonials", id: "testimonials", label: "Clients" },
+  { href: "/#insights", id: "insights", label: "Insights" },
+  { href: "/#contact", id: "contact", label: "Contact" },
 ];
 
 export const services = [
@@ -157,35 +213,30 @@ export const services = [
   },
 ] as const;
 
-export const whyColumns = [
-  {
-    title: "Diagnose",
-    lead: "See the brief clearly before we cut a tool.",
-    points: [
-      "Category, retail and ethnographic insight",
-      "Packaging audits and competitor benchmarks",
-      "Specs that converters can actually run",
-    ],
-  },
-  {
-    title: "Design & engineer",
-    lead: "Make the pack work — on shelf and on line.",
-    points: [
-      "Structure, 3D design and graphics",
-      "Predictive modelling CAE / FEA",
-      "Artworks and colour optimisation",
-    ],
-  },
-  {
-    title: "Launch",
-    lead: "Stay with you until the pack is live.",
-    points: [
-      "Sourcing and supplier alignment",
-      "Audit, quality and crisis support",
-      "Cost and value engineering through launch",
-    ],
-  },
-];
+export const whyTable = {
+  lead: "Your End-to-End partner, till successful Launch !",
+  columns: [
+    { id: "agency", label: "Design house / Ad. agency" },
+    { id: "monofix", label: "MONOFIX", featured: true },
+    { id: "vendor", label: "Vendor / Engineering co." },
+  ],
+  rows: [
+    { capability: "NPD Brainstorming", agency: true, monofix: true, vendor: false },
+    { capability: "Creative concepts", agency: true, monofix: true, vendor: false },
+    { capability: "Designing", agency: true, monofix: true, vendor: false },
+    { capability: "Label Graphics", agency: true, monofix: true, vendor: false },
+    { capability: "Engineering + Testing Lab", agency: false, monofix: true, vendor: true },
+    { capability: "Predictive Modelling CAE / FEA", agency: false, monofix: true, vendor: false },
+    { capability: "Mould-making", agency: false, monofix: true, vendor: true },
+    { capability: "Machinery, Filling", agency: false, monofix: true, vendor: true },
+    { capability: "Production", agency: false, monofix: true, vendor: true },
+    { capability: "Cost Optimisation", agency: false, monofix: true, vendor: true },
+    { capability: "Vendor Management", agency: false, monofix: true, vendor: true },
+    { capability: "Retail, POP", agency: false, monofix: true, vendor: false },
+    { capability: "Training, Hand-holding", agency: false, monofix: true, vendor: false },
+    { capability: "End-to-End Expertise", agency: false, monofix: true, vendor: false, emphasize: true },
+  ],
+} as const;
 
 export const gallery = [
   {

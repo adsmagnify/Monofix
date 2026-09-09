@@ -11,17 +11,19 @@ export default function PayAndUsePage() {
     <>
       <PageHero
         kicker="Packaging made easy + pay n use"
-        title="A calculator for pack quality and endurance"
-        lead="A pay-per-use tool so visitors can check packaging quality and endurance metrics. The application will be embedded here."
+        title="PACKGN made easy"
+        lead="A pay-per-use calculator for pack quality and endurance. The application will be embedded here."
       />
-      <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-        <div className="rounded-3xl border border-dashed border-navy/30 bg-white p-10 text-center">
-          <p className="font-display text-2xl">Calculator embedding next</p>
-          <p className="mt-3 text-slate">
-            Multi-currency pricing for the tool, and the live PET / HDPE / PP / Kraft feed on Insights, are part of
-            the same build path.
+      <section className="mx-auto max-w-[1400px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
+        <div className="rounded-3xl border border-dashed border-navy/30 bg-white px-10 py-20 text-center">
+          <p className="font-display text-3xl">Pay n use</p>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-slate">
+            The calculator will sit on this page once it is ready to embed.
           </p>
-          <Link href="/contact" className="mt-6 inline-flex rounded-full bg-ink px-5 py-3 text-sm font-bold text-white">
+          <Link
+            href="/contact"
+            className="mt-10 inline-flex cursor-pointer rounded-full bg-ink px-8 py-4 text-base font-bold text-white"
+          >
             Ask about pay-and-use access
           </Link>
         </div>
